@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+    ontology:
+        build:  
+          network: host
+          context: .
+        container_name: ontology
+        privileged: true
+        environment:
+          - "WORKDIR=/ontology-mapping-chatbot"
+          - "PYTHONPATH=/ontology-mapping-chatbot"
+          - "LANG=en"
+        ports:
+        - "8090:8000"
+        volumes:
+        - ./data_dumps:/ontology-mapping-chatbot/data_dumps
